@@ -1,11 +1,7 @@
 ﻿using DesafioCRUD.Data.Data;
 using DesafioCRUD.Repository.Repository.Interface;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq.Expressions;
 
 namespace DesafioCRUD.Repository.Repository
 {
@@ -36,6 +32,11 @@ namespace DesafioCRUD.Repository.Repository
             }
         }
 
+        public Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<IEnumerable<T>> GetAllAsync()
         {
             return await _dbSet.ToListAsync();
@@ -51,5 +52,8 @@ namespace DesafioCRUD.Repository.Repository
             _dbSet.Update(entity);
             await _context.SaveChangesAsync();
         }
+
+        public async Task<IEnumerable<T>> FindBuscaAsync(Expression<Func<T, bool>> predicate)
+        => await _dbSet.Where(predicate).ToListAsync();
     }
 }

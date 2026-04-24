@@ -31,6 +31,13 @@ builder.Services.AddCors(options =>
     });
 });
 
+builder.Services.AddSwaggerGen(c =>
+{
+    // Garante que o Swagger use o namespace completo como identificador
+    c.CustomSchemaIds(type => type.FullName);
+});
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

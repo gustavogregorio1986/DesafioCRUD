@@ -1,7 +1,6 @@
 ﻿using DesafioCRUD.Dominio.Dominio;
 using DesafioCRUD.DTO.Leads;
 using DesafioCRUD.Service.Service;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DesafioCRUD.Controllers
@@ -91,6 +90,17 @@ namespace DesafioCRUD.Controllers
             await _leadService.AtualizarLeadAsync(lead);
             return Ok();
         }
+
+        [HttpGet("filtrar")]
+        public async Task<IActionResult> Filtrar(
+            [FromQuery] string? nome,
+            [FromQuery] string? email,
+            [FromQuery] DesafioCRUD.Dominio.Dominio.TaskStatus? status)
+        {
+            var leads = await _leadService.FiltrarLeadsAsync(nome, email, status);
+            return Ok(leads);
+        }
+
 
         // DELETE: api/leads/5
         [HttpDelete("{id}")]

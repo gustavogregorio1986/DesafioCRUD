@@ -1,10 +1,6 @@
 ﻿using DesafioCRUD.Dominio.Dominio;
 using DesafioCRUD.Repository.Repository.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace DesafioCRUD.Service.Service
 {
@@ -43,6 +39,15 @@ namespace DesafioCRUD.Service.Service
         public async Task RemoverLeadAsync(int id)
         {
             await _leadRepo.DeleteAsync(id);
+        }
+
+        public async Task<IEnumerable<Lead>> FiltrarLeadsAsync(string? nome, string? email, DesafioCRUD.Dominio.Dominio.TaskStatus? status)
+        {
+            return await _leadRepo.FindAsync(l =>
+                (string.IsNullOrEmpty(nome) || l.Name.Contains(nome)) &&
+                (string.IsNullOrEmpty(email) || l.Email.Contains(email)) &&
+                (!status.HasValue || l.Tasks.Any(t => t.Status == status.Value))
+            );
         }
     }
 }
