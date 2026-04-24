@@ -1,0 +1,22 @@
+# Etapa de build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+WORKDIR /src
+
+COPY *.sln .
+COPY API/*.csproj ./API/
+COPY Dominio/*.csproj ./Dominio/
+COPY DTO/*.csproj ./DTO/
+COPY Repository/*.csproj ./Repository/
+COPY Service/*.csproj ./Service/
+COPY Data/*.csproj ./Data/
+
+RUN dotnet restore
+
+COPY . .
+RUN dotnet publish API/API.csproj -c Release -o /app/publish
+
+# Etapa de runtime
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
+WORKDIR /app
+COPY --from=build /app/publish .
+ENTRYPOINT ["dotnet", "DesafioCRUD.dll"]
