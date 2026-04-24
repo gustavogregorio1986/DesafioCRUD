@@ -60,6 +60,9 @@ namespace DesafioCRUD.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(TaskCreateDto dto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             var task = new TaskItem
             {
                 Title = dto.Title,

@@ -60,6 +60,9 @@ namespace DesafioCRUD.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(LeadCreateDto dto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             var lead = new Lead
             {
                 Name = dto.Name,
