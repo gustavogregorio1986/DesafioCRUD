@@ -22,12 +22,9 @@
   <ItemGroup>
     <ProjectReference Include="..\DesafioCRUD.Data\DesafioCRUD.Data.csproj" />
     <ProjectReference Include="..\DesafioCRUD.Dominio\DesafioCRUD.Dominio.csproj" />
+    <ProjectReference Include="..\DesafioCRUD.DTO\DesafioCRUD.DTO.csproj" />
     <ProjectReference Include="..\DesafioCRUD.Repository\DesafioCRUD.Repository.csproj" />
     <ProjectReference Include="..\DesafioCRUD.Service\DesafioCRUD.Service.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>

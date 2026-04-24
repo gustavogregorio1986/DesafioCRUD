@@ -8,6 +8,9 @@
   <Folder Name="/Dominio/">
     <Project Path="DesafioCRUD.Dominio/DesafioCRUD.Dominio.csproj" />
   </Folder>
+  <Folder Name="/DTO/">
+    <Project Path="DesafioCRUD.DTO/DesafioCRUD.DTO.csproj" Id="c45b37e3-3b1b-45b7-bbe7-cf574be0d5f8" />
+  </Folder>
   <Folder Name="/Repository/">
     <Project Path="DesafioCRUD.Repository/DesafioCRUD.Repository.csproj" />
   </Folder>
