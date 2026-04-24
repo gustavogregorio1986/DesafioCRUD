@@ -1,0 +1,17 @@
+<Solution>
+  <Folder Name="/API/">
+    <Project Path="DesafioCRUD/DesafioCRUD.csproj" />
+  </Folder>
+  <Folder Name="/Data/">
+    <Project Path="DesafioCRUD.Data/DesafioCRUD.Data.csproj" />
+  </Folder>
+  <Folder Name="/Dominio/">
+    <Project Path="DesafioCRUD.Dominio/DesafioCRUD.Dominio.csproj" />
+  </Folder>
+  <Folder Name="/Repository/">
+    <Project Path="DesafioCRUD.Repository/DesafioCRUD.Repository.csproj" />
+  </Folder>
+  <Folder Name="/Service/">
+    <Project Path="DesafioCRUD.Service/DesafioCRUD.Service.csproj" />
+  </Folder>
+</Solution>
